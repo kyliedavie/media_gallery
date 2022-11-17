@@ -15,43 +15,79 @@ a:visited {color:#305eb3;}
 a:hover {color: var(--accent);}
 a:active {color: var(--dkmid);}
 
-header.top-nav { /*-- main nav styles --*/
-  background-color: var(--ltmid); /*-- nav background --*/
-  padding: 1rem 2rem 1rem 0; /*-- inside padding --*/
-  display: flex; /*-- header bar is a flex container --*/
-  min-height: 8rem; /*-- header bar has a minimum height --*/
-  justify-content: space-between; /*-- main axis space distribution --*/
-  align-items: center; /*-- cross axis space distribution --*/
-  position: relative; /*-- needed to absolutly position some children --*/
+header.top-nav {
+  background-color: #3e625c;
+  padding: 1rem 2rem 1rem 0;
+  display: flex;
+  min-height: 8rem;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
-nav { /*-- targets the links wrapper --*/
-  flex-basis: 30%; /*-- gives this flex child an ideal width --*/
-  display: flex; /*-- makes the child also a flex container --*/
-  justify-content: space-between; /*-- main axis space distribution --*/
+nav {
+  flex-basis: 30%;
+  display: flex;
+  justify-content: space-between;
 }
-a.nav-link { /*-- targets individual links --*/
-  padding-left: 2.8rem; /*-- sets some minimum padding --*/
-  color: var(--dark); /*-- text color --*/
-  font-weight: 500; /*-- text weight --*/
-  text-decoration: none; /*-- removes underlines --*/
-  transition: all .2s ease-in-out; /*-- sets a transition for hover effects --*/
+a.nav-link {
+  padding-left: 2.8rem;
+  color: var(--dark);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+  color: white;
 }
 a.nav-link:hover {
-  color: var(--accent);  /*-- color on hover --*/
+  color: var(--accent);
 }
-a.nav-link.logo {  /*-- just the site title --*/
-  text-transform: uppercase; /*-- makes all caps --*/
-  font-weight: 900; /*-- set to heaviest font --*/
+a.nav-link.logo {
+  text-transform: uppercase;
+  font-weight: 900;
+  color: white;
 }
-a#trigram { /*-- hamburger menu icon --*/
-  display: none;  /*-- default display is none --*/
+a#trigram {
+  display: none;
 }
-a#trigram::before { /*-- uses ::before to change the menu icon --*/
-  content: '\2630'; /*-- sets it to show the hamburger icon --*/
-  font-size: 4rem; /*-- makes it very large --*/
-  position: relative; /*-- posititions it explicitly --*/
-  top: -.5rem; /*-- a little space from the top --*/
-  right: 0; /*-- flush right --*/
+a#trigram::before {
+  content: '\2630';
+  font-size: 4rem;
+  position: relative;
+  top: -.5rem;
+  right: 0;
+}
+@media screen and (max-width: 990px) {
+  .nav-wrap {
+    display: none;
+  }
+  .nav-wrap.mobile {
+    position:absolute;
+    z-index: 10;
+    top: 7rem;
+    right: 0;
+    width: 100%;
+    padding: 0 2rem 2rem 2rem;
+    background: var(--ltmid);
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+  .nav-wrap.mobile a {
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding: 2rem 2rem;
+    margin: 0;
+  }
+  .nav-wrap.mobile a:hover {
+    background-color: var(--light);
+  }
+  a#trigram {
+    display: inherit;
+  }
+  a#trigram.tri-mobile::before {
+    content: '\00D7';
+  }
 }
 main {
   padding: 1rem 2rem; /*-- adds inside space around the main content area --*/
@@ -60,12 +96,19 @@ main {
   display: flex; /*-- declares a flex container --*/
   justify-content: center; /*-- center in the main axis --*/
   align-items: center; /*-- center in the cross axis --*/
-  height: 55rem; /*-- fixed hieght, probably delete this --*/
   border: 2px dashed var(--dkmid); /*-- unsubtle border --*/
   border-radius: 8px; /*-- rounded corners --*/
   background-color: var(--light); /*-- a bit of light background color --*/
   color: var(--dkmid); /*-- text color is mid --*/
   position: relative; /*-- allows explicit positioning for children --*/
+}
+.slides {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.slides {
+  display: none;
 }
 .controls button { /*-- you'll probably replace all .controls styles with your own --*/
   cursor: pointer; /*-- changes hover cursor to the hand --*/
@@ -91,19 +134,52 @@ main {
 .slideshow h2 { /*-- styles the placeholder text (probably safe to delete) --*/
   font-size: 4rem; /*-- font is larger than normal --*/
 }
+.caption-wrap {
+  position: absolute;
+  bottom: .5rem;
+  width: 100%;
+  background-color: rgba(0,0,0,.5);
+  padding: .5rem 1rem;
+  font-size: 2.2rem;
+  text-align: center;
+  color: var(--ltmid);
+}
+.thumbs {
+  display: flex;
+  gap: 1rem;
+}
+.thumbs img {
+  opacity: .5;
+  cursor: pointer;
+  transition: all .25s ease-in-out;
+  border: 2px dotted transparent;
+}
+.thumbs img:hover, img.active {
+  opacity: 1;
+}
+img.active {
+  border: 2px dotted var(--accent);
+}
 .hero {
   padding: 4rem 0; /*-- top and bottom padding for the container --*/
   display: flex; /*-- declares a flex container --*/
   flex-direction: column; /*-- direction downward --*/
   justify-content: center; /*-- vertical center --*/
   align-items: center; /*-- horizontal center --*/
-  background-color: var(--ltmid); /*-- light color --*/
+  background-color: #3E625C; /*-- light color --*/
   width: 100vw; /*-- extra wide --*/
   margin: 2rem 0 1rem -2rem; /*-- negative right margin compensates for extra width --*/
+  color: white;
 }
 .hero > * { /*-- targets all direct children of .hero --*/
   margin: 0; /*-- zeroes their margins --*/
   padding: 0; /*-- zeroes their padding --*/
+}
+#linkage {
+  color: #6495ed;
+}
+#linkage:hover {
+  color: #a3c1f9;
 }
 .grid-cont { /*-- styles the main grid container for media cards --*/
   padding: 2rem 0; /*-- top and bottom padding for the grid container --*/
@@ -131,22 +207,27 @@ main {
   border: 2px dashed var(--dkmid); /*-- dashed border --*/
   background-color: var(--light); /*-- a little bit of light color --*/
 }
-.card img { /*-- selects image children of .card --*/
-  width: 100%; /*-- full width of container --*/
+.card img { /*-- selects image children of .card --*/ 
   height: auto; /*-- maintain aspect ratio --*/
   max-height: 320px; /*-- can't be too tall --*/
   border-radius: 8px 8px 0 0; /*-- curved corners, but just on the top --*/
 }
-.card button { /*-- selects button children of .card elements --*/
+.card-content button { /*-- selects button children of .card elements --*/
   width: 30%; /*-- 1/3rd width of parent (the .card) --*/
   min-width: 6rem; /*-- can't be too narrow --*/
   margin: 2rem auto; /*-- centered it --*/
   padding: 1rem 2rem; /*-- makes space inside the button --*/
   cursor: pointer; /*-- changes the mouse cursor from arrow to pointer --*/
+  background-color: #DDDD;
+  border-radius: 10px;
+}
+.card-content button:hover {
+  background-color: white;
+  transition: 0.4s ease-in-out;
 }
 footer { /*-- just some footer styles, nothing weird --*/
   margin-top: 2rem; /*-- adds space above --*/
-  background-color: var(--ltmid); /*-- light mid color --*/
+  background-color: #3E625C; /*-- light mid color --*/
   padding: 1rem 2rem; /*-- inside space to match the nav --*/
   display: flex; /*-- might as well --*/
   height: 6rem; /*-- fixed height  --*/
@@ -157,4 +238,111 @@ footer p { /*-- targets the footer text --*/
   width: 100%; /*-- p elements are full width of the container --*/
   text-align: center; /*-- centers the text --*/
   font-weight: 500; /*-- mid-weight font --*/
+  color: white;
+}
+/*-- pasted styles --*/
+.main-grid-item {
+  border-radius: 4px;  /*-- rounds borders --*/
+  background-color: var(--bg);
+  border-radius: 8px; /*-- curved edges --*/
+  border: 2px dashed var(--dkmid); /*-- dashed border --*/
+  background-color: var(--light); /*-- a little bit of light color --*/
+  padding: .5rem;
+}
+.card-thumb {
+  padding-bottom: 56%; /*-- creates ~16:9 ratio--*/
+  background-size: cover; /*--sets image to cover background --*/
+  background-position: center center; /*-- positions image horiz. and vert. center --*/
+  border-radius: 4px 4px 0 0; /*-- rounds top-left and top-right edges --*/
+}
+/*-- Card Backgrounds --*/
+.one .card-thumb {background-image: url('https://picsum.photos/300/200/?image=10');}
+.two .card-thumb {background-image: url('https://picsum.photos/300/200/?image=13');}
+.three .card-thumb {background-image: url('https://picsum.photos/300/200/?image=14');}
+.four .card-thumb {background-image: url('https://picsum.photos/300/200/?image=16');}
+
+/*----*/
+.card-content {
+  padding: 0 .5em .7em .5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*-- vertically centers card content --*/
+}
+.card-title {
+  margin: 1rem 0 0 0;
+  text-transform: uppercase; /*--all caps text --*/
+  align-self: flex-start; /*-- positions at beginning --*/
+  color: var(--text);
+}
+.card-text {
+  font-size: .80em;
+  line-height: 1.2;
+  align-self: flex-start;
+  color: var(--text);
+}
+
+/*-- Modal Styles --*/
+/* The Modal (background) */
+.modal {
+   display: none;/*-- hidden by default --*/
+   position: fixed; /*-- doesn't move on the screen --*/
+   z-index: 1100; /*-- sets higher than anything else so modal is in the very front --*/
+   left: 0; /*-- positions at zero pixels from the left --*/
+   top: 0; /*-- positions at zero pixels from the top --*/
+   width: 100%; /*-- fills the space --*/
+   height: 100%; /*-- fills the space --*/
+   overflow: auto; /*-- handles overflow as normal. --*/
+   background-color: rgba(10, 10, 10, .4); /*--slightly transparent--*/
+}
+.modal-content {
+   background-color: var(--light);
+   color: var(--dark);
+   margin: 1rem auto;
+   padding: 1em;
+   width: 92%;
+   border-radius: 4px;
+   animation: fadein .3s ease-in-out; /*-- sets animation properties: name, duration, easing --*/
+}
+@keyframes fadein {
+  from{transform:scale(.1);} /*-- modal grows from very small to full size--*/
+}
+.close {
+   color: var(--text);
+   font-size: 2.5em;
+   font-weight: bold;
+   position: absolute; /*-- always at the top right of the modal --*/
+   top: 5px;
+   right: 4.25%;
+   transition: all .2s ease-in;
+   text-shadow: 2px 2px 5px #FAFAFA,
+               -2px -2px 5px #FAFAFA,
+               2px -2px 5px #FAFAFA,
+               -2px 2px 5px #FAFAFA;
+}
+.close:hover,
+.close:focus {
+   color: var(--accent);
+   text-decoration: none;
+   cursor: pointer;
+}
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr; /*-- default modal grid (for mobile screens)--*/
+  grid-gap: 2em;
+}
+.eg-text {
+  align-self: center;
+}
+.eg-text h3 {
+  margin-top: 0;
+  padding-top: 0;
+}
+.modal-body img {
+  margin-bottom: 1.5em;
+  width: 100%;
+  height: auto;
+}
+@media screen and (min-width: 1280px) { /*-- better modal display on largest screens --*/
+  .modal-body {grid-template-columns: 7fr 5fr;}
+
 }

@@ -11,45 +11,164 @@
 </head>
 <body>
   <header class="top-nav">
-    <a href="#" class="nav-link logo">Site&nbsp;Title</a>
+    <a href="#" class="nav-link logo">Media&nbsp;Gallery</a>
     <nav id="site-nav" class="nav-wrap">
-      <a href="#" class="nav-link">News</a>
-      <a href="#" class="nav-link">About</a>
-      <a href="#" class="nav-link">Specials</a>
-      <a href="#" class="nav-link">Contact</a>
+      <a href="#" class="nav-link">Floop</a>
+      <a href="#" class="nav-link">Bloop</a>
+      <a href="#" class="nav-link">Shmoop</a>
+      <a href="#" class="nav-link">Ploop</a>
     </nav>
     <a href="#" class="nav-link" id="trigram" onclick="navToggle()"></a>
   </header>
   <main>
     <section class="slideshow">
-      <!--slider goes here-->
-      <h2>slideshow here</h2>
+      <figure class="slides">
+        <img src="https://picsum.photos/seed/90th/1440/520" style="width:100%"/>
+      </figure>
+      <figure class="slides">
+        <img src="https://picsum.photos/seed/91st/1440/520" style="width:100%"/>
+      </figure>
+      <figure class="slides">
+        <img src="https://picsum.photos/seed/93rd/1440/520" style="width:100%"/>
+      </figure>
+      <figure class="slides">
+        <img src="https://picsum.photos/seed/94th/1440/520" style="width:100%"/>
+      </figure>
+      <figure class="slides">
+        <img src="https://picsum.photos/seed/98th/1440/520" style="width:100%"/>
+      </figure>
+      <figure class="slides">
+        <img src="https://picsum.photos/seed/25th/1440/520" style="width:100%"/>
+      </figure>
       <div class="controls">
-        <button>&#8249;</button>
-        <button>&#8250;</button>
+        <button class="prev" onclick="plusSlides(-1)">&#8249;</button>
+        <button class="next" onclick="plusSlides(1)">&#8250;</button>
+      </div>
+      <div class="caption-wrap">
+        <p id="caption"></p>
       </div>
     </section>
+   <div class="thumbs">
+      <img class="thumb" src="https://picsum.photos/seed/90th/240/80" onclick="currentSlide(1)" 
+      alt="Can you tell what this is?" />
+      <img class="thumb" src="https://picsum.photos/seed/91st/240/80" onclick="currentSlide(2)" 
+      alt="I wish I could skateboard" />
+      <img class="thumb" src="https://picsum.photos/seed/93rd/240/80" onclick="currentSlide(3)" 
+      alt="I wonder what he's thinking about" />
+      <img class="thumb" src="https://picsum.photos/seed/94th/240/80" onclick="currentSlide(4)" 
+      alt="Say cheese!" />
+      <img class="thumb" src="https://picsum.photos/seed/98th/240/80" onclick="currentSlide(5)" 
+      alt="Blurry pics are cool" />
+      <img class="thumb" src="https://picsum.photos/seed/25th/240/80" onclick="currentSlide(6)" 
+      alt="Pretty sky" />
+    </div> 
     <section class="hero">
       <h2>Images from <em>Lorem Picsum</em></h2>
-      <p>Visit <a href="https://picsum.photos/">that site</a> to learn how to use them.</p>
+      <p>Visit <a href="https://picsum.photos/" id="linkage">that site</a> to learn how to use them.</p>
     </section>
+
     <section class="grid-cont">
-      <article class="card">
-        <!-- <img src="https://picsum.photos/480/320?grayscale&random=1" alt="alt-text reads . . ."> -->
-        <h4>Heading for a bit</h4>
-        <p>Purus semper eget duis at tellus at urna condimentum mattis pellentesque id nibh tortor id aliquet lectus proin nibh nisl condimentum id venenatis a condimentum</p>
-        <button onclick="sampleFunction()">Click</button><!--when clicked, the function runs-->
-      </article><!--end article.card-->
+
+      <!--card starts below-->
+      <div class="main-grid-item one">
+        <div class="card-thumb"></div><hr />
+        <div class="card-content">
+          <h4 class="card-title">A Beautiful View</h4>
+          <p class="card-text">I really liked this image because it almost feels like you are on top of a mountain overlooking the landscape before you.</p>
+          <button data-modal="#09" class="card-more button">Click &#187;</button>
+        </div>
+      </div><!--end .main-grid-item -->
+      <div id="09" class="modal">
+  		  <div class="modal-content">
+  		    <span class="close">&times;</span>
+  				<div class="modal-body">
+            <img src="https://picsum.photos/800/450/?image=10" alt="example" />
+  					<div class="eg-text">
+  						<h3>A Beautiful View</h3>
+  						<p>I really liked this image because it almost feels like you are on top of a mountain overlooking the landscape before you . . . Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  					</div>
+  				</div><!--end .modal-body-->
+  		  </div><!--end .modal-content-->
+  		</div><!--end .modal-->
+      <!--end of one single card :)-->
+
+      <!--card starts below-->
+      <div class="main-grid-item two">
+        <div class="card-thumb"></div><hr />
+        <div class="card-content">
+          <h4 class="card-title">A Stunning View</h4>
+          <p class="card-text">I really liked this image because it reminds me of being at Seneca Lake during the Fall. It's almost like you can tell it's a little chilly outside.</p>
+          <button data-modal="#01" class="card-more button">Click &#187;</button>
+        </div>
+      </div><!--end .main-grid-item -->
+      <div id="01" class="modal">
+  		  <div class="modal-content">
+  		    <span class="close">&times;</span>
+  				<div class="modal-body">
+            <img src="https://picsum.photos/800/450/?image=13" alt="example" />
+  					<div class="eg-text">
+  						<h3>A Stunning View</h3>
+  						<p>I really liked this image because it reminds me of being at Seneca Lake during the Fall. It's almost like you can tell it's a little chilly outside . . . Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  					</div>
+  				</div><!--end .modal-body-->
+  		  </div><!--end .modal-content-->
+  		</div><!--end .modal-->
+      <!--end of one single card :)-->
+
+      <!--card starts below-->
+      <div class="main-grid-item three">
+        <div class="card-thumb"></div><hr />
+        <div class="card-content">
+          <h4 class="card-title">A Glorious View</h4>
+          <p class="card-text">I really liked this image because it reminds me of a shore I used to go to frequently when I was in Bali over the Summer.</p>
+          <button data-modal="#02" class="card-more button">Click &#187;</button>
+        </div>
+      </div><!--end .main-grid-item -->
+      <div id="02" class="modal">
+  		  <div class="modal-content">
+  		    <span class="close">&times;</span>
+  				<div class="modal-body">
+            <img src="https://picsum.photos/800/450/?image=14" alt="example" />
+  					<div class="eg-text">
+  						<h3>A Glorious View</h3>
+  						<p>I really liked this image because it reminds me of a shore I used to go to frequently when I was in Bali over the Summer . . . Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  					</div>
+  				</div><!--end .modal-body-->
+  		  </div><!--end .modal-content-->
+  		</div><!--end .modal-->
+      <!--end of one single card :)-->
       
-      <!--
-        add more article.cards inside this section
-      -->
+      <!--card starts below-->
+      <div class="main-grid-item four">
+        <div class="card-thumb"></div><hr />
+        <div class="card-content">
+          <h4 class="card-title">An Exquisite View</h4>
+          <p class="card-text">I really liked this image because of the stunning blue water and sky. The mountain in the background also adds to the beauty of the photo.</p>
+          <button data-modal="#03" class="card-more button">Click &#187;</button>
+        </div>
+      </div><!--end .main-grid-item -->
+      <div id="03" class="modal">
+  		  <div class="modal-content">
+  		    <span class="close">&times;</span>
+  				<div class="modal-body">
+            <img src="https://picsum.photos/800/450/?image=16" alt="example" />
+  					<div class="eg-text">
+  						<h3>An Exquisite View</h3>
+  						<p>I really liked this image because of the stunning blue water and sky. The mountain in the background also adds to the beauty of the photo . . . Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  					</div>
+  				</div><!--end .modal-body-->
+  		  </div><!--end .modal-content-->
+  		</div><!--end .modal-->
+      <!--end of one single card :)-->
 
     </section>
   </main>
   <footer>
-    <p>&copy;2022 Your Name</p>
+    <p>&copy;2022 Kylie Davie</p>
   </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
   <script src="js/page.js"></script>
 </body>
 </html>
